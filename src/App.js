@@ -2,7 +2,7 @@ import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Form from './Components/Form';
+import Form from './Components/Form.tsx';
 import Logo from './Components/Logo';
 import Footer from './Components/Footer';
 

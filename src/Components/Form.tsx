@@ -7,7 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Button from "@material-ui/core/Button";
 import InputPassword from "./inputPassword";
-import { loginActions } from  '../Store/login'
+import { loginActions } from  '../Store/login.ts';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 function Form() {
   const classes = useStyles();
   const [values, setValues] = useState({
+    email: '',
     password: '',
     showPassword: false,
   });
@@ -39,7 +40,6 @@ function Form() {
 
   const {
     register,
-    handleLogin,
   } = useForm({
     mode: 'onChange',
   });
@@ -48,8 +48,8 @@ function Form() {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  function handleLogin() {
-    dispatch(loginActions.login)
+  function handleSubmit() {
+    dispatch(loginActions.login())
   }
 
   return (
@@ -59,9 +59,8 @@ function Form() {
         <InputLabel htmlFor="email">E-mail</InputLabel>
         <FilledInput
           id="email"
-          type={values.showPassword ? 'text' : 'password'}
-          value={values.password}
-          onChange={handleChange('password')}
+          value={values.email}
+          onChange={handleChange('email')}
           onInvalid={() => toast.error('E-mail inválido')}
           {...register('email', {
             required: 'E-mail e senha são obrigatórios',
@@ -69,7 +68,7 @@ function Form() {
         />
       </FormControl>
       <InputPassword/>
-      <Button style={{height: '40px', width: '280px',border: '1px solid #008F8C', color: '#008F8C', marginTop: '40px'}} onClick={handleLogin}>ENTRAR</Button>
+      <Button style={{height: '40px', width: '280px',border: '1px solid #008F8C', color: '#008F8C', marginTop: '40px'}} onClick={handleSubmit}>ENTRAR</Button>
     </div>
   );
 }

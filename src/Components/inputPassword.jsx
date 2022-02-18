@@ -36,7 +36,6 @@ function InputPassword() {
 
   const {
     register,
-    handleLogin,
   } = useForm({
     mode: 'onChange',
   });
