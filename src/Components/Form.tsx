@@ -7,7 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Button from "@material-ui/core/Button";
 import InputPassword from "./inputPassword";
-import { loginActions } from  '../Store/login.ts';
+import { loginActions } from  '../Store/login';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -33,8 +33,7 @@ function Form() {
   const classes = useStyles();
   const [values, setValues] = useState({
     email: '',
-    password: '',
-    showPassword: false,
+    password: ''
   });
   const dispatch = useDispatch();
 
@@ -49,7 +48,7 @@ function Form() {
   };
 
   function handleSubmit() {
-    dispatch(loginActions.login())
+    dispatch(loginActions.login({email: values.email, password: values.password}))
   }
 
   return (
