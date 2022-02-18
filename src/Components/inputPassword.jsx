@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function InputPassword() {
+function InputPassword(value) {
   const classes = useStyles();
   const [values, setValues] = useState({
     password: '',

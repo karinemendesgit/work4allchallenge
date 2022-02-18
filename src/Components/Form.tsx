@@ -66,7 +66,7 @@ function Form() {
           })}
         />
       </FormControl>
-      <InputPassword/>
+      <InputPassword value={values.password}/>
       <Button style={{height: '40px', width: '280px',border: '1px solid #008F8C', color: '#008F8C', marginTop: '40px'}} onClick={handleSubmit}>ENTRAR</Button>
     </div>
   );
