@@ -1,0 +1,10 @@
+.logo {
+  border-right: 2px solid #98c0ebba;
+  height: 500px;
+  display: grid;
+  place-content: center;
+}
+
+.logo img {
+  margin-right: 60px;
+}
